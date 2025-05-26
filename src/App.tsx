@@ -1,19 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 // src/App.tsx
+// src/App.tsx
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Projects from './components/projects'; // Твой компонент проектов
 import Header from './components/Header';
-export default App;
+import './App.css';
+
 function App() {
   return (
-    <div>
-      <Header />
-      <main>
-        <h2>Добро пожаловать!</h2>
-        <p>Это моё портфолио, где я буду показывать свои проекты.</p>
-      </main>
-    </div>
+    <Router>
+      <div className="app">
+        <Header />
+
+        <main className="content">
+          <Routes>
+            {/* Главная страница */}
+            <Route path="/Header" element={< Header/>} />
+
+            {/* Страница проектов */}
+            <Route path="/projects" element={<Projects />} />
+
+            {/* Можно добавить другие маршруты позже */}
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
